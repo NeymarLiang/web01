@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <meta http-equiv='cache-control' content='no-cache'>
+        <meta http-equiv='expires' content='0'>
+        <meta http-equiv='pragma' content='no-cache'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .alcohol{
+                display: flex;
+                background-color: rgb(201, 201, 201);
+                flex-wrap: wrap;
+                height: 100%;
+                width: 100%;
+            }
+            
+            .p{
+                margin: 0;
+                padding: 1;
+            }
+            
+            .Spirytus{
+                flex: 25%;
+            }
+            
+            .header1{
+                margin: 0;
+                padding: 0;
+                background-image: url("https://c4.wallpaperflare.com/wallpaper/479/496/26/ice-glass-cigar-ice-wallpaper-preview.jpg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: black;
+                
+                height: 485px;
+                width: 100%;  
+            }
+            
+            
+            
+            .header1 .content p{
+                margin: 0;
+                color: white;
+                font-size: 25px;
+                line-height: 500px;
+                font-family: monospace;
+                font-weight: bold; 
+            }
+            
+            .chinese p{
+                flex = 100%;
+                background-color: rgb(201, 201, 201);
+                margin: 0;
+                padding: 10px;
+                font-size: 40PX; 
+                color: rgb(0, 105, 0);
+                font-weight: bold;
+                font-size: 60px;
+                font-family: "Verdana";
+            }
+            
+            .alcohol .Spirytus p{
+                margin: 5px;
+                font-weight: bold;
+                font-size: 15px;
+            }
+            
+            .drink{
+                border-radius: 6px;
+            }
+            
+            .price{
+                color: rgb(201, 201, 201);
+            }
+            
+        </style>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/navbar.css">
+        <link rel="stylesheet" type="text/css" href="/footer.css">
+        <link rel="stylesheet" type="text/css" href="/AboutUs.css"> 
+        <link rel="stylesheet" type="text/css" href="/ContectUs.css">
+        
+        <script type="application/javascript">
+            let stocks=[];
+            let collectData=[];
+            let collectPrice=[];
+            let count = 0;
+            
+            $(document).ready(function(){             
+                $('#nav').load('/nvbar.html');
+                $('#footer').load('/footer.html');
+            
+            let products = document.getElementsByClassName("Spirytus");
+                
+            for(let i =0;i<products.length;i++){
+                products[i].getElementsByClassName('drink')[0].addEventListener('click',function(){
+                    collect(i+1);
+                    count += 1;
+                    quantity(count,i);
+                    
+                });
+                
+                let name = products[i].getElementsByClassName('name')[0].innerHTML;
+                let price = products[i].getElementsByClassName('price')[0].innerHTML;
+                let image = products[i].getElementsByClassName('drink')[0].getAttribute('src');
+                stocks.push({ID:i+1, Name:name, Price:price, Image:image});
+                }
+                
+            });
+            
+            function addParamUrl(){
+                let stks=encodeURIComponent(JSON.stringify(stocks));
+                let cldt=encodeURIComponent(JSON.stringify(collectData));
+                window.location='/cart.html' + '?stocks='+ stks + '&collectCartData=' + cldt;
+            }
+            
+            function collect(id){
+                alert(id);
+                collectData.push(id);
+                let stks=encodeURIComponent(JSON.stringify(stocks));
+                let cldt=encodeURIComponent(JSON.stringify(collectData)); document.getElementById('cartLink').setAttribute('href','/Cart.html' + '?stocks='+ stks + '&collectCartData=' + cldt );
+            }
+            
+            function PageAboutUs(){
+                $('.add').load('/AboutUs.html');
+            }
+            
+            function PageContectUs(){
+                $('.add').load('/ContectUs.html');
+            }
+            
+            function quantity(a,id){
+                alert(a);
+                
+                let test = document.getElementById('qty');
+                test.innerHTML = a;
+            }
+            
+            
+            
+        </script>
+    </head>
+    
+    <body>
+  
+        <div id="nav"></div>
+        
+        <div class="add">
+        <center>
+        
+        <div class="header1">
+            <div class="content">
+                <p>Real Men Drinks Alcohol CoCa CoLa For KIDs</p>         
+            </div>
+        </div>
+            <div class="chinese"><p >Our Product</p></div>
+            
+        <div class="alcohol">
+                <div class="Spirytus">
+                    <img class="drink" src="https://c0.wallpaperflare.com/preview/980/967/828/gin-gin-and-tonic-cocktails.jpg" width="200" height="200"/>
+                    <p class="name">Gin And Tonic</p>
+                    <p class="fake">RM 125.00</p>
+                    <p class="price">125.00</p>
+                    
+                        <p class="q" id="qty">0</p>
+                  
+                </div>
+                <div class="Spirytus">
+                    <img class="drink" src="http://mixology.com.tw/images/product/pic/AV32.jpg" width="200" height="200"/>
+                    <p class="name">Spirytus Rektyfikowany</p>
+                    <p class="fake">RM 172.00</p>
+                    <p class="price">172.00</p>
+                     <p class="q" id="qty">0</p>
+               </div>
+               <div class="Spirytus">
+                    <img class="drink" src="https://c4.wallpaperflare.com/wallpaper/490/529/186/food-alcohol-bacardi-rum-wallpaper-preview.jpg" width="200" height="200"/>
+                   <p class="name">Mount Gay Black Barrel</p>
+                   <p class="fake">RM 220.00</p>
+                   <p class="price">220.00</p>
+                    <p class="q" id="qty">0</p>
+               </div>
+                 <div class="Spirytus">
+                    <img class="drink" src="https://i.pinimg.com/originals/de/16/f9/de16f96d83bfaffaa57ad44a8a091e27.jpg" width="200" height="200"/>
+                     <p class="name">Mount Barrel</p>
+                     <p class="fake">RM 198.00</p>
+                     <p class="price">198.00</p>
+                      <p class="q" id="qty">0</p>
+               </div>
+                <div class="Spirytus">
+                    <img class="drink" src="https://wallpapercave.com/wp/wp1834509.jpg" width="200" height="200"/>
+                    <p class="name">Absolut 72%</p>
+                    <p class="fake">RM 224.00</p>
+                    <p class="price">224.00</p>
+                     <p class="q" id="qty">0</p>
+                </div>
+                <div class="Spirytus">
+                    <img class="drink" src="https://images.unsplash.com/photo-1580537922571-ca7180cd700e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2hpc2t5fGVufDB8fDB8fA%3D%3D&w=1000&q=80" width="200" height="200"/>
+                    <p class="name">Jack Daniels</p>
+                    <p class="fake">RM 125.00</p>
+                    <p class="price">RM 240.00</p>
+                     <p class="q" id="qty">0</p>
+               </div>
+               <div class="Spirytus">
+                    <img class="drink" src="https://a-static.mlcdn.com.br/618x463/vermouth-martini-rosato-750ml-2-copos-vidro-martini/newnessbebidasimportadas/9100321581/28221703c422bd7b1ba45e9e1f1fb7d6.jpg" width="200" height="200"/>
+                   <p class="name">Martini</p>
+                   <p class="fake">RM 243.00</p>
+                   <p class="price">243.00</p>
+                    <p class="q" id="qty">0</p>
+               </div>
+                 <div class="Spirytus">
+                    <img class="drink" src="https://images-na.ssl-images-amazon.com/images/I/916gT6wbYtL.jpg" width="200" height="200"/>
+                    <p class="name">George Robertson</p>
+                     <p class="fake">RM 125.00</p>
+                    <p class="price">177.00</p>
+                      <p class="q" id="qty">0</p>
+               </div>  
+        </div>
+            
+        </center>
+        </div>
+        
+        <div id="footer">
+        </div>
+        
+    </body>
+</html>

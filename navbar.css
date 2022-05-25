@@ -1,0 +1,52 @@
+
+        .navbar{
+                background-color:rgb(56, 56, 53);
+                width: 100%;
+                height: 80px;
+                overflow: hidden;
+            }
+              
+            .logo{
+                padding-left: 10px;
+                padding-top: 10px;
+                display: inline-block;
+            }
+            
+            .navbar nav ul{
+                list-style-type: none;
+                float: right;
+                padding-top: 1px;
+                padding-right: 40px;
+            }
+            
+            .navbar nav ul li{
+                float: left;
+                margin: 10px;
+            }
+            
+            .navbar nav ul li a{
+                 font-family: "Lucida Console", "Courier New", monospace;
+                color: rgb(158, 158, 145);
+                font-weight: bold;
+                font-size: 20px;
+                text-decoration: none;
+            }
+            
+            .navbar nav ul li a:hover{
+                color: white;
+                cursor: pointer;
+            }
+
+            
+
+            .icon{
+                font-size: 22px;
+                color: rgb(158, 158, 145);
+            }
+            
+            .icon:hover{
+                cursor: pointer;
+                color: white;
+            }
+        
+    

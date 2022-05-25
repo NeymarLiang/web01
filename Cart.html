@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            body{
+                width: 100%;
+                margin: 0px;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            
+            .container{
+                border-radius: 6px;
+                display: inline-block;
+                height: auto;
+                width: 700px;
+                padding: 10px;
+                margin: auto;
+                margin-top: 10px;;
+                background-color: rgb(240, 240, 240); 
+                border: 1px;  
+            }
+            
+            .C p{
+                text-align: center;
+                margin: 10px;
+                font-family: Arial, Helvetica, sans-serif;
+                color: rgb(0, 105, 0);
+                font-size: 40px;
+                font-weight: bold;
+            }
+            
+            .cart{
+                height: auto;
+                font-family: monospace;
+            }
+            
+            .cart input{
+                float: right;
+                border-radius: 5px;
+                width: 5%;
+                text-align: center;
+            }
+            
+            .cart p{
+                float: right;
+                margin: 5px;
+                font-size: 15px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            
+            
+            .TotalPrice{
+                text-decoration: underline;
+                font-weight: bold;
+                margin: 0px;
+            }
+            
+            .Price{
+                margin: 0px;
+            }
+            
+            .btn{
+                  float: right;    
+                  background: rgb(0, 105, 0);
+                  border: 1px solid rgb(0, 105, 0);
+                  border-radius: 6px;
+                  box-sizing: border-box;
+                  color: white;
+                  cursor: pointer;
+                  display: inline-block;
+                  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+                  font-size: 16px;
+                  font-weight: 800;
+                  line-height: 16px;
+                  min-height: 40px;
+                  outline: 0;
+                  padding: 12px 14px;
+                  text-align: center;
+                  text-rendering: geometricprecision;
+                  text-transform: none;
+                  user-select: none;
+                  -webkit-user-select: 
+                  vertical-align: middle;
+                }
+
+                .btn:hover,
+                .btn:active {
+                  background-color: initial;
+                  background-position: 0 0;
+                  color: #FF4742;
+                }
+
+                .btn:active {
+                  opacity: .5;
+                }
+                  
+        </style>
+        
+    </head>
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/navbar.css"> 
+        <link rel="stylesheet" type="text/css" href="/footer.css"> 
+    
+         <script type="application/javascript">
+            
+            $(document).ready(function(){
+                $('#nav').load('/nvbar.html');
+                $('#footer').load('/footer.html');
+            });
+             
+            window.onload=function(){
+                let totalPrice= 0;
+                
+                const queryString=window.location.search;
+                const urlParams=new URLSearchParams(queryString);
+                
+                const stocks=JSON.parse(urlParams.get('stocks'));
+                const collected=JSON.parse(urlParams.get('collectCartData'));
+                
+                for(let i=0; i<collected.length;i++){
+                    let stock=stocks.filter(function(v,index){ 
+                        return v.ID==collected[i];
+                    })
+                    
+                    let div=document.createElement('div');
+                    let img=document.createElement('img');
+                    let nm=document.createElement('p');
+                    let price=document.createElement('p');
+                    let x =document.createElement('p');
+                    let rm =document.createElement('p');
+                    
+                    const input = document.createElement('input');
+                    input.setAttribute("type","text");
+                    let value = input.nodeValue;
+                    x.innerHTML = " X ";
+                    rm.innerHTML = "RM ";
+                    
+                    img.setAttribute('src',stock[0].Image);
+                    img.style.display='inline';
+                    img.style.width='40%';
+                    img.style.height='50%';
+                    div.style.marginBottom = '5%';
+                    price.innerHTML=stock[0].Price;
+                    nm.innerHTML=stock[0].Name;
+                    
+                    calculate(price,value);
+                    
+                    div.append(img);
+                    div.append(input);
+                    div.append(x);
+                    div.append(price);
+                    div.append(rm);
+                    div.append(nm);
+                    
+                    document.getElementsByClassName('cart')[0].append(div);
+                }
+                
+                function calculate(pi,v){
+                    totalPrice = pi * v;
+                    let showTP =document.createElement('p');
+                    showTP.innerHTML=totalPrice;
+                    
+                    document.getElementsByClassName('sPrice')[0].append(showTP);
+                    
+                }
+            }
+            
+        </script>
+    
+    <body>
+        <div id="nav"></div>
+        
+        <div class="C"><p>Cart List</p></div>
+        
+        <div class="container">
+            <div class="cart">
+            </div>
+                <p class="TotalPrice">Total Price :</p><br>
+                <p class="sPrice"> </p>
+                
+                <input class="btn" type="button" value="Check Out">
+        </div>
+        
+        
+        <div id="footer"></div>
+        
+    </body>
+</html>

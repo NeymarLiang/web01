@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="file:///C:/Users/Acer/Dropbox/PC/Desktop/HTML/Assignment1/nvbar.css"> 
+        <style>
+
+            .alcohol{
+                display: flex;
+                background-color: rgb(201, 201, 201);
+                flex-wrap: wrap;
+                padding-top: 15px;
+                height: 700px;
+                width: 100%;
+            }
+            
+            .p{
+                margin: 0;
+                padding: 1;
+            }
+            
+            .Spirytus{
+                flex: 25%;
+            }
+            
+            .header{
+                margin: 0;
+                padding: 0;
+                background-image: url("https://c4.wallpaperflare.com/wallpaper/479/496/26/ice-glass-cigar-ice-wallpaper-preview.jpg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: black;
+                text-align: center;
+                height: 485px;
+                width: 100%;  
+            }
+            
+            .header .content p{
+                margin: 0;
+                color: white;
+                font-size: 25px;
+                line-height: 500px;
+                font-family: monospace;
+                font-weight: bold; 
+            }
+            
+            .chinese p{
+                flex = 100%;
+                background-color: rgb(201, 201, 201);
+                margin: 0;
+                padding: 10px;
+                font-size: 40PX;
+                text-decoration: underline; 
+            }
+            
+            .alcohol .Spirytus p:hover{
+                color: firebrick;
+            }
+            
+            .drink:hover{
+                -webkit-transform: scale(0.9);
+                -ms-transform: scale(0.9);
+                transform: scale(0.9);
+            }
+            
+            .footer{
+                background-color: black;
+                margin-top: auto;
+                 
+                 left: 0;
+                 bottom: 0;
+                 width: 100%;
+                font-weight: bold;
+            }
+            
+            .footer .Bhd{
+                color: aliceblue;
+                font-size: 15px;
+                
+            }
+            
+            .footer .footercontent{
+                color: aliceblue;
+                font-size: 13px;
+            }
+            
+        </style>
+        
+    </head>
+    
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="application/javascript">
+            $(Document).ready(function(){
+                $('#nav').load('file:///C:/Users/Acer/Dropbox/PC/Desktop/HTML/Assignment1/nvbar.html')});
+        </script>
+        
+        <div class = "navbar" id="nav">
+            
+        </div>
+        <center>
+        <div class="header">
+            <div class="content">
+                <p>Real Men Drinks Alcohol CoCa CoLa For KIDs</p>               
+            </div>
+        </div>
+        </center>    
+        <center>
+            <div class="chinese"><p >今朝有酒今朝醉，明日愁来明日愁</p></div>
+        <div class="alcohol">
+                <div class="Spirytus">
+                    <img class="drink" src="https://c0.wallpaperflare.com/preview/980/967/828/gin-gin-and-tonic-cocktails.jpg" width="200" height="200"/>
+                    <p>Gin And Tonic<br>RM 125.00</p>
+                </div>
+                <div class="Spirytus">
+                    <img class="drink" src="http://mixology.com.tw/images/product/pic/AV32.jpg" width="200" height="200"/>
+                    <p>Spirytus Rektyfikowany<br>RM 172.00</p>
+               </div>
+               <div class="Spirytus">
+                    <img class="drink" src="https://c4.wallpaperflare.com/wallpaper/490/529/186/food-alcohol-bacardi-rum-wallpaper-preview.jpg" width="200" height="200"/>
+                    <p>Mount Gay Black Barrel<br>RM 220.00</p>
+               </div>
+                 <div class="Spirytus">
+                    <img class="drink" src="https://i.pinimg.com/originals/de/16/f9/de16f96d83bfaffaa57ad44a8a091e27.jpg" width="200" height="200"/>
+                    <p>Mount Gay Black Barrel<br>RM 198.00</p>
+               </div>
+                <div class="Spirytus">
+                    <img class="drink" src="https://wallpapercave.com/wp/wp1834509.jpg" width="200" height="200"/>
+                    <p>Absolut 72%<br>RM 224.00</p>
+                </div>
+                <div class="Spirytus">
+                    <img class="drink" src="https://images.unsplash.com/photo-1580537922571-ca7180cd700e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2hpc2t5fGVufDB8fDB8fA%3D%3D&w=1000&q=80" width="200" height="200"/>
+                    <p>Jack Daniels<br>RM 240.00</p>
+               </div>
+               <div class="Spirytus">
+                    <img class="drink" src="https://a-static.mlcdn.com.br/618x463/vermouth-martini-rosato-750ml-2-copos-vidro-martini/newnessbebidasimportadas/9100321581/28221703c422bd7b1ba45e9e1f1fb7d6.jpg" width="200" height="200"/>
+                    <p>Martini<br>RM 243.00</p>
+               </div>
+                 <div class="Spirytus">
+                    <img class="drink" src="https://images-na.ssl-images-amazon.com/images/I/916gT6wbYtL.jpg" width="200" height="200"/>
+                    <p>George Robertson<br>RM 177.00</p>
+               </div>  
+        </div>
+        </center>
+        
+        <footer class="footer">
+            <p class="Bhd">&copy; Solid Alcohol Sdn Bhd</p>                
+            <p class="footercontent">Contact Number: +6017-2223195</p>
+            <p class="footercontent">Email: yapyiliang0228@e.neivce.edu.my</p>
+        </footer>
+        
+    </body>
+</html>
